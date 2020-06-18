@@ -1,0 +1,12 @@
+{
+  "generator": {
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "mumbling_woods:mumbling_woodlands"
+    },
+    "seed": -1464245863,
+    "settings": "minecraft:overworld",
+    "type": "minecraft:noise"
+  },
+  "type": "mumbling_woods:mumbling_woods_type"
+}

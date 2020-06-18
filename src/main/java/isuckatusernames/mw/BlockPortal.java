@@ -1,4 +1,4 @@
-package me.modmuss50.svw;
+package isuckatusernames.mw;
 
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.block.Block;
@@ -12,7 +12,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
 
 public class BlockPortal extends Block {
 	public BlockPortal() {
@@ -23,10 +22,10 @@ public class BlockPortal extends Block {
 	public ActionResult onUse(BlockState stateBlock, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		if (!world.isClient) {
 			ServerWorld serverWorld = (ServerWorld) playerEntity.getEntityWorld();
-			if (serverWorld.getRegistryKey() == SimpleVoidWorld.VOID_WORLD) {
+			if (serverWorld.getRegistryKey() == MumblingWoods.MUMBLING_WOODS_WORLD) {
 				FabricDimensions.teleport(playerEntity, serverWorld.getServer().getWorld(World.OVERWORLD), VoidPlacementHandler.leave(blockPos));
 			} else {
-				ServerWorld voidWorld = serverWorld.getServer().getWorld(SimpleVoidWorld.VOID_WORLD);
+				ServerWorld voidWorld = serverWorld.getServer().getWorld(MumblingWoods.MUMBLING_WOODS_WORLD);
 				if (voidWorld == null) {
 					playerEntity.sendMessage(new LiteralText("Failed to find void world, was it registered?"), false);
 					return ActionResult.FAIL;
